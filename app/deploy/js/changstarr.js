@@ -523,6 +523,8 @@ $(function(){
                   config: function () {  
                     this.page.identifier = "track_"+current_track_id+"_lyric_"+lyric_id;  
                     this.page.url = "http://localhost#!track_"+current_track_id;
+                    console.log(this.page.identifier)
+                    console.log(this.page.url)
                   }
                 });
             });
