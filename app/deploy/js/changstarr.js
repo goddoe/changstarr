@@ -474,7 +474,7 @@ $(function(){
     // Disqus variable
     var disqus_shortname = 'changstarr';
     var disqus_identifier = 'track_1_lyric_0';
-    var disqus_url = 'http://localhost/track_1/';
+    var disqus_url = 'http://localhost/track_1_lyric_0';
     var disqus_config = function () { 
     	this.language = "ko";
     };
@@ -522,7 +522,7 @@ $(function(){
                   reload: true,
                   config: function () {  
                     this.page.identifier = "track_"+current_track_id+"_lyric_"+lyric_id;  
-                    this.page.url = "http://localhost#!track_"+current_track_id;
+                    this.page.url = "http://localhost#!track_"+current_track_id+"_lyric_"+lyric_id;
                     console.log(this.page.identifier)
                     console.log(this.page.url)
                   }
