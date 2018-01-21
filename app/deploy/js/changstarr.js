@@ -464,17 +464,27 @@ $(function(){
     
     
     
-    /////////////////// TEST ///////////////////
+    /////////////////// Logic ///////////////////
 
     // Global variables
     current_track_id = 1;
     lyric_meaning = [];
 
+                        							
+    // Disqus variable
+    var disqus_shortname = 'changstarr';
+    var disqus_identifier = 'track_1_lyric_0';
+    var disqus_url = 'http://localhost/track_1/';
+    var disqus_config = function () { 
+    	this.language = "ko";
+    };
+
+
     for(var i=0 ; i < $(".track_item").length ; i++) {
       (function (j){$(".track_item").eq(j).click(function(evt){
           evt.preventDefault();
 
-          track_id = j+1 
+          var track_id = j+1 
 
           // Set lyric
           $.ajax({url: "data/lyrics/"+track_id+"/lyric.html", success: function(result){
@@ -494,7 +504,6 @@ $(function(){
               $(".song_author").text(data["song_author"])
               $(".song_video").attr("href",data["song_video"])
               $(".song_soundcloud").attr("src",data["song_soundcloud"])
-
             });
 
           // Get lyric meaning    
@@ -506,25 +515,24 @@ $(function(){
 
             $(document).on ("click", ".lyrics_link", function (evt) {
             evt.preventDefault();
-                var num = $(this).data('track_id');
-                $(".popup_desc").empty().append(lyric_meaning[num]);
+                var lyric_id = $(this).data('lyric_id');
+                $(".popup_desc").empty().append(lyric_meaning[lyric_id]);
+
+                DISQUS.reset({  
+                  reload: true,
+                  config: function () {  
+                    this.page.identifier = "track_"+current_track_id+"_lyric_"+lyric_id;  
+                    this.page.url = "http://localhost#!track_"+current_track_id;
+                  }
+                });
             });
           });
+				
       })})(i);
     }
 
     $(".track_item").eq(0).click()
 
-    
-
 });
-
-
-
-
-
-
-
-
 
 
