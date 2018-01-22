@@ -114,9 +114,9 @@ $(function(){
     
     function showLyrics(){
     
-        if(isMobile === true){ //모바일에선 성능 향상을 위해 효과 없이 처음부터 나타남
-            return false; 
-        }
+        // if(isMobile === true){ //모바일에선 성능 향상을 위해 효과 없이 처음부터 나타남
+        //     return false; 
+        // }
         
 
         $(".lyrics_link").each(function(){
