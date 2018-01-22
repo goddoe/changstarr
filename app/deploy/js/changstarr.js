@@ -95,9 +95,9 @@ $(function(){
            $(".title_text").addClass("on");
        });
         
-       setTimeout(function(){ //5초가 지나면 glitch효과 제거
-           $visual_image.removeClass('on');
-       },5000);
+       // setTimeout(function(){ //5초가 지나면 glitch효과 제거
+       //     $visual_image.removeClass('on');
+       // },5000);
         
      }
     
