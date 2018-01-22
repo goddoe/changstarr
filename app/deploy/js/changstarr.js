@@ -445,24 +445,7 @@ $(function(){
     });
 
     
-
-    
-    $(window).on('load',function(){
-        
-        
-        checkMobible(); //모바일 체크
-        showVisual(); //비주얼 등장
-        insertItag(); //가사에 여백을 위한 i 태그 추가
-        showLyrics(); //가사 배경색 표시
-        // particleJs(); //파티클 표현
-        showLyricsInfo();
-        
-        
-        
-        
-    });
-    
-    
+   
     
     /////////////////// Logic ///////////////////
 
@@ -534,7 +517,19 @@ $(function(){
       })})(i);
     }
 
-    $(".track_item").eq(0).click()
+
+    
+    $(window).on('load',function(){
+        checkMobible(); //모바일 체크
+        showVisual(); //비주얼 등장
+        insertItag(); //가사에 여백을 위한 i 태그 추가
+        showLyrics(); //가사 배경색 표시
+        // particleJs(); //파티클 표현, slow issue
+        showLyricsInfo();
+        $(".track_item").eq(0).click() // select first track
+    });
+    
+ 
 
 });
 
