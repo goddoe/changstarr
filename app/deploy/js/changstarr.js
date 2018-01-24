@@ -484,9 +484,8 @@ $(function(){
                 lyric_meaning.push(val);
               });
               $(".song_title").text(data["song_title"])
-              $(".song_info").html(data["song_info"])
-              $(".song_author").text(data["song_author"])
-              $(".song_video").attr("href",data["song_video"])
+              $(".song_desc").html(data["song_desc"])
+              $(".song_video").html(data["song_video"])
               $(".song_soundcloud").attr("src",data["song_soundcloud"])
             });
 
