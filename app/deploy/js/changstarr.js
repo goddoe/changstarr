@@ -447,7 +447,7 @@ $(function(){
     
    
     
-    /////////////////// Logic ///////////////////
+    /////////////////// Connect with lyrics and Disqus ///////////////////
 
     // Global variables
     current_track_id = 1;
@@ -462,7 +462,6 @@ $(function(){
     var disqus_config = function () { 
     	this.language = "ko";
     };
-
 
     for(var i=0 ; i < $(".track_item").length ; i++) {
       (function (j){$(".track_item").eq(j).click(function(evt){
@@ -515,15 +514,13 @@ $(function(){
 				
       })})(i);
     }
-
-
     
     $(window).on('load',function(){
         checkMobible(); //모바일 체크
         showVisual(); //비주얼 등장
         insertItag(); //가사에 여백을 위한 i 태그 추가
         showLyrics(); //가사 배경색 표시
-        // particleJs(); //파티클 표현, slow issue
+        // particleJs(); //파티클 표현,  slow issue 
         showLyricsInfo();
         $(".track_item").eq(0).click() // select first track
     });
