@@ -467,17 +467,18 @@ $(function(){
       (function (j){$(".track_item").eq(j).click(function(evt){
           evt.preventDefault();
 
-          var track_id = j+1 
+          // var track_id = j+1 
+          current_track_id = j+1
 
           // Set lyric
-          $.ajax({url: "data/lyrics/"+track_id+"/lyric.html", success: function(result){
+          $.ajax({url: "data/lyrics/"+current_track_id+"/lyric.html", success: function(result){
              $(".lyrics").html(result);
              $(".track_item").eq(j).addClass('on').siblings().removeClass('on');
               insertItag();
           }});
 
           // Song info
-          $.getJSON( "data/lyrics/"+track_id+"/song_info.json", function( data ) {
+          $.getJSON( "data/lyrics/"+current_track_id+"/song_info.json", function( data ) {
               $(".song_title").text(data["song_title"])
               $(".song_desc").html(data["song_desc"])
               $(".song_video").html(data["song_video"])
@@ -485,7 +486,7 @@ $(function(){
             });
 
           // Get lyric meaning    
-          $.getJSON( "data/lyrics/"+track_id+"/lyric_info.json", function( data ) {
+          $.getJSON( "data/lyrics/"+current_track_id+"/lyric_info.json", function( data ) {
             lyric_meaning = [];
             $.each( data, function( key, val ) {
               lyric_meaning.push(val);
