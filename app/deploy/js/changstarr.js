@@ -478,10 +478,6 @@ $(function(){
 
           // Song info
           $.getJSON( "data/lyrics/"+track_id+"/song_info.json", function( data ) {
-              lyric_meaning = [];
-              $.each( data, function( key, val ) {
-                lyric_meaning.push(val);
-              });
               $(".song_title").text(data["song_title"])
               $(".song_desc").html(data["song_desc"])
               $(".song_video").html(data["song_video"])
