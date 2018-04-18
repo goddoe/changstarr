@@ -456,7 +456,7 @@ $(function(){
                         							
     // Disqus variable
     host = 'http://'+window.location.host;
-    var disqus_shortname = 'changstarr';
+    var disqus_shortname = 'changstarr-1';
     var disqus_identifier = 'track-1-lyric-0';
     var disqus_url = host+'#!track-1-lyric-0/';
     var disqus_config = function () { 
