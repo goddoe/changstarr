@@ -527,3 +527,71 @@ $(function(){
 });
 
 
+
+///////////
+//180515//
+//////////
+
+
+$(function(){
+
+    // [*] 변수
+    var $html = $("html");
+    var $wrap = $(".wrap");
+    var $header = $(".header");
+    var $nav = $("nav");
+    var $burger = $header.find(".hamburger");
+
+
+    // [*] 스크롤바 너비 구하기
+    function scrollBarWidth() { 
+        document.body.style.overflow='hidden';var width=document.body.clientWidth;document.body.style.overflow='scroll';width-=document.body.clientWidth;if(!width)width=document.body.offsetWidth-document.body.clientWidth;document.body.style.overflow='';return width;
+    }
+
+    // [*] 스크롤 방지
+    function preventScroll(){
+        $html.addClass("no_scroll");
+        $wrap.css({"margin-right":scrollBarWidth(),"width":"auto"});
+    }
+
+    // [*] 스크롤 허용
+    function allowScroll(){
+        $html.removeClass("no_scroll");
+        $wrap.removeAttr("style");
+    }
+  
+
+    // [*] 버거 메뉴 오픈
+    function openBurgerMenu(){
+        $header.addClass("opened");
+        setTimeout(function(){
+            $nav.find(".nav").addClass("show");
+        },500);
+        preventScroll();
+    }
+
+    // [*] 버거 메뉴 클로즈
+    function closeBurgerMenu(){
+        $nav.find(".nav").removeClass("show");
+        setTimeout(function(){
+            $header.removeClass("opened");
+        },900);
+        allowScroll();
+    }
+
+    function initEvt(){
+
+        // [*] 버거 토글
+        $burger.on("click",function(e){
+            e.preventDefault();
+            $header.hasClass("opened") ? closeBurgerMenu() : openBurgerMenu();
+        });
+    }
+
+    $(window).on("load",function(){
+        initEvt();
+    });
+
+
+
+});
